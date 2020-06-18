@@ -1,0 +1,6 @@
+﻿.OECenterAB {hack: expression(function(e){$(e).removeClass('OECenterAB').addClass('OECenterAB_IE')}(this))}
+.OECenterAH {hack: expression(function(e){$(e).removeClass('OECenterAH').addClass('OECenterAH_IE')}(this))}
+.OECenterAV {hack: expression(function(e){$(e).removeClass('OECenterAV').addClass('OECenterAV_IE')}(this))}
+.OECenterAB_IE {hack: expression(function(e){$(e).css("margin","0 !important").css("left",(e.parentNode.clientWidth - e.offsetWidth) / 2).css("top",(e.parentNode.clientHeight - e.offsetHeight) / 2)}(this))}
+.OECenterAH_IE {hack: expression(function(e){$(e).css("margin","0 !important").css("left",(e.parentNode.clientWidth - e.offsetWidth) / 2)}(this))}
+.OECenterAV_IE {hack: expression(function(e){$(e).css("margin","0 !important").css("top",(e.parentNode.clientHeight - e.offsetHeight) / 2)}(this))}
