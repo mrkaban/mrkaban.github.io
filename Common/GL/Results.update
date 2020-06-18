@@ -1,0 +1,150 @@
+﻿#STARTQ (Clear old data and structure)
+##(DD no longer necessary - increment DBResults.Version instead: [update version value at the end of the script])
+DROP TABLE IF EXISTS results_items;
+DROP TABLE IF EXISTS results;
+DROP TABLE IF EXISTS pages;
+DROP TABLE IF EXISTS version;
+DROP TABLE IF EXISTS data;
+#ENDQ
+
+#STARTQ (Make DB table pages)
+CREATE TABLE IF NOT EXISTS pages (
+ID			INTEGER PRIMARY KEY AUTOINCREMENT ,
+##OE page serial
+Serial		CHARACTER(36) NOT NULL,
+##OE page culture
+Culture		CHARACTER(5) NOT NULL,
+##Score résults (1 to 100)
+Score		INTEGER NOT NULL DEFAULT 0,
+##User disable this page results
+Disabled    INTEGER NOT NULL DEFAULT 0,
+##Internal version
+Version			INTEGER NOT NULL,
+##Status: analysis in progress = 1
+Status			INTEGER NOT NULL DEFAULT 0,
+##Json various
+Xtra			TEXT NULL DEFAULT NULL,
+##Reserved
+Xtra2			TEXT NULL DEFAULT NULL
+);
+##INDEX
+CREATE INDEX IF NOT EXISTS Index_Serial ON pages (Serial ASC);
+#ENDQ
+
+#STARTQ (Make DB table results)
+CREATE TABLE IF NOT EXISTS results (
+ID				INTEGER PRIMARY KEY AUTOINCREMENT,
+##Parent page ID
+IDPage			INTEGER NOT NULL,
+##Internal serial
+Serial		    TEXT NOT NULL,
+##Token group (<value1><value2> etc)
+Token	    	TEXT NOT NULL,
+##Address of branch in the result display tree, may be several comma-separated branches (1-2-3-4,5-6 or just 4,6 (check!) etc)
+BranchAddress  	TEXT NOT NULL,
+##Score résults (1 to 100)
+Score			INTEGER NOT NULL DEFAULT 0, 
+##Easy (1 to 10), Medium (11 to 20), 3 Hard (21 to 30)
+##Weight of result (Score*Weight is used to calculate page score)
+Weight		INTEGER NOT NULL, 
+Difficulty		INTEGER  NOT NULL,
+##Error (1), Warning (2), Tip (3), Info (4)
+Icone   		INTEGER NOT NULL,
+##User hide this result (boolean)
+Hidden  		INTEGER NOT NULL DEFAULT 0,
+##User disable this result (boolean)
+Disabled        INTEGER NOT NULL DEFAULT 0,
+##Result title
+Title			TEXT NOT NULL,
+##Result description
+Description		TEXT NOT NULL,
+##Internal version
+Version			INTEGER NOT NULL,
+##Json various
+Xtra			TEXT NULL DEFAULT NULL,
+##Reserved
+Xtra2			TEXT NULL DEFAULT NULL,
+##CONSTRAINT
+CONSTRAINT Const_Serial UNIQUE (Serial)
+);
+##INDEX
+CREATE INDEX IF NOT EXISTS Index_Serial ON results (Serial ASC);
+CREATE INDEX IF NOT EXISTS Index_IDPage ON results (IDPage ASC);
+#ENDQ
+
+
+#STARTQ (Make DB table results_items)
+CREATE TABLE IF NOT EXISTS results_items (
+ID			INTEGER PRIMARY KEY AUTOINCREMENT,
+##Parent result ID
+IDResult	INTEGER NOT NULL,
+##Internal serial
+Serial		TEXT NOT NULL,
+##(Not used) Token group (value1,value2,etc)
+Token   	INTEGER NOT NULL,
+##Score résults (1 to 100)
+Score		INTEGER NOT NULL DEFAULT 0,
+##Weight of result ("local" to parent TResult, Score*Weight used to calculate TResult score)
+Weight		INTEGER NOT NULL, 
+##User hide this result
+Hidden  	INTEGER NOT NULL DEFAULT 0,
+##OK (1), To be corrected (2), Ignore (3), Currently Calculating (4)
+State		INTEGER NOT NULL,
+##Result Item description (e.g. Size 150Kb, possible 10Kb)
+Description		TEXT NOT NULL,
+##Result solution
+Solution	TEXT NOT NULL,
+##OE Element ID
+IDElement   TEXT NULL DEFAULT NULL,
+##Run oe tools for corrected
+RunTool		TEXT NULL DEFAULT NULL,
+##Module that last generated this result item
+SrcModule		TEXT NULL DEFAULT NULL,
+##Json various
+Xtra		TEXT NULL DEFAULT NULL,
+##Internal version
+Version			INTEGER NOT NULL,
+##Reserved
+Xtra2			TEXT NULL DEFAULT NULL,
+##CONSTRAINT
+CONSTRAINT Const_Serial UNIQUE (Serial)
+);
+##INDEX
+CREATE INDEX IF NOT EXISTS Index_Serial ON results_items (Serial ASC);
+CREATE INDEX IF NOT EXISTS Index_IDResult ON results_items (IDResult ASC);
+CREATE INDEX IF NOT EXISTS Index_Module ON results_items (SrcModule ASC);
+#ENDQ
+
+
+#STARTQ (Make DB table version)
+CREATE TABLE IF NOT EXISTS version (version INTEGER NOT NULL);
+#ENDQ
+
+
+#STARTQ (Add or Ignore global pages row)
+INSERT OR IGNORE INTO pages (ID, Serial, Culture, Score) VALUES (0, 'ALL', 'ALL', 0);
+#ENDQ
+
+#STARTQ (Add or Update current DB version)
+DELETE FROM version;
+INSERT INTO version (version) VALUES (__STRUCTURE_VERSION__);
+#ENDQ
+
+
+#STARTQ (Make DB table data - handled by TInput class)
+CREATE TABLE IF NOT EXISTS data (
+ID			INTEGER PRIMARY KEY AUTOINCREMENT ,
+##TInput Serial
+Serial		TEXT NOT NULL,
+##Data as string (JSON or other) to pass to GuideLine
+Data		TEXT NOT NULL,
+##Last update time
+Time		INTEGER NOT NULL DEFAULT 0,
+##Internal version (not used at the moment of this modification)
+Version			INTEGER NOT NULL DEFAULT 0,
+##Json various (reserved)
+Xtra			TEXT NULL DEFAULT NULL
+);
+##INDEX
+CREATE INDEX IF NOT EXISTS Index_Serial ON data (Serial ASC);
+#ENDQ
