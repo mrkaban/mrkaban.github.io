@@ -1,31 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc />
-    <lastmod>2020-06-10</lastmod>
-  </url>
-  <url oeid="3f17910d-c6ad-4a18-be52-a85b5fe8f8a9" oelang="DEFAULT">
-    <loc>Contact.htm</loc>
-    <lastmod>2020-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="Contact.htm" />
-    <xhtml:link rel="alternate" hreflang="en-us" href="Contact.en-us.htm" />
-  </url>
-  <url oeid="3f17910d-c6ad-4a18-be52-a85b5fe8f8a9" oelang="EN-US">
-    <loc>Contact.en-us.htm</loc>
-    <lastmod>2020-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="Contact.htm" />
-    <xhtml:link rel="alternate" hreflang="en-us" href="Contact.en-us.htm" />
-  </url>
-  <url oeid="6b4ff180-e9ba-4527-8fc3-238277deb8bb" oelang="DEFAULT">
-    <loc>index.htm</loc>
-    <lastmod>2020-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="index.htm" />
-    <xhtml:link rel="alternate" hreflang="en-us" href="index.en-us.htm" />
-  </url>
-  <url oeid="6b4ff180-e9ba-4527-8fc3-238277deb8bb" oelang="EN-US">
-    <loc>index.en-us.htm</loc>
-    <lastmod>2020-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="index.htm" />
-    <xhtml:link rel="alternate" hreflang="en-us" href="index.en-us.htm" />
-  </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://mrkaban.github.io/about.html</loc>
+    </url>
+    <url>
+        <loc>https://mrkaban.github.io/contact.html</loc>
+    </url>
+    <url>
+        <loc>https://mrkaban.github.io/index.html</loc>
+    </url>
 </urlset>
