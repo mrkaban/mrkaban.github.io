@@ -1,1 +1,5 @@
+User-agent: *
+Allow: /
+
 Sitemap:sitemap.xml
+Host: https://mrkaban.github.io/
