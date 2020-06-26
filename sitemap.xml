@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    <url>
-        <loc>https://mrkaban.github.io/about.html</loc>
-    </url>
-    <url>
-        <loc>https://mrkaban.github.io/contact.html</loc>
-    </url>
-    <url>
-        <loc>https://mrkaban.github.io/index.html</loc>
-    </url>
+<!-- Sitemap for https://mrkaban.github.io/ generated at 2020-06-26 13:17-->
+<!-- 3 links discovered, runtime 00h 00m 02s -->
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.google.com/schemas/sitemap/0.84
+http://www.google.com/schemas/sitemap/0.84/sitemap.xsd">
+  <url>
+    <loc>https://mrkaban.github.io/about.html</loc>
+    <lastmod>2020-06-25 12:55:17</lastmod>
+  </url>
+  <url>
+    <loc>https://mrkaban.github.io/contact.html</loc>
+    <lastmod>2020-06-25 12:55:17</lastmod>
+  </url>
+  <url>
+    <loc>https://mrkaban.github.io/index.html</loc>
+    <lastmod>2020-06-25 12:55:17</lastmod>
+  </url>
 </urlset>
