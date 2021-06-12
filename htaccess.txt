@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} mrkaban.github.io
-RewriteRule (.*) http://xn--90abhbolvbbfgb9aje4m.xn--p1ai/$1 [R=301,L]
