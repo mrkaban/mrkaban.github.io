@@ -1,4 +1,3 @@
 Options +FollowSymLinks
 RewriteEngine On
-RewriteCond %{HTTP_HOST} mrkaban.github.io
-RewriteRule (.*) https://xn--90abhbolvbbfgb9aje4m.xn--p1ai/$1 [R=301,L]
+
